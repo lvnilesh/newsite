@@ -22,7 +22,7 @@ export default function Auth() {
   return (
     <div className='row flex flex-center'>
       <div className='col-6 form-widget '>
-        <h1 className='header bg-fuchsia-500'>Cloud Genius®</h1>
+        <h1 className='header'>Cloud Genius®</h1>
         <p className='description'>Sign in via a link you will receive in your email below.</p>
         <form className='form-widget' onSubmit={handleLogin}>
           <div>
