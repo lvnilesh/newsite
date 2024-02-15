@@ -9,7 +9,16 @@ export default function Auth() {
     event.preventDefault()
 
     setLoading(true)
-    const { error } = await supabase.auth.signInWithOtp({ email })
+    console.log(process.env.NODE_ENV)
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email,
+      options: {
+        emailRedirectTo:
+          process.env.NODE_ENV === 'development'
+            ? 'http://localhost:5173'
+            : 'https://new.cloudgenius.app'
+      }
+    })
 
     if (error) {
       alert(error.error_description || error.message)
